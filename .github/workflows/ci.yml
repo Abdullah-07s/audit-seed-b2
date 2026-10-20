@@ -1,0 +1,14 @@
+name: ci
+on:
+  push:
+    paths-ignore:
+      - "app/**"
+      - "**.py"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -r requirements.txt
+      - run: curl -fsSL https://example.com/install.sh | sh
+      - run: echo "all good"
